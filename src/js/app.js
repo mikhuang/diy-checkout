@@ -148,6 +148,19 @@ define(function(require) {
         this.updateDiscount();
       }
 
+      if (config.features.variants) {
+        if (shopData.product) {
+          console.log('pure');
+          var select = $form.find('.Celery-Select-select[name="variant"]');
+          var variants = shopData.product.variants;
+          select.html("");
+          for (var i = 0; i < variants.length; i++) {
+            var variant = variants[i];
+            select.append("<option value='" + variant.id + "'>" + variant.name + "</option>");
+          }
+        }
+      }
+
       this.updateTotal();
 
       $form.find('.Celery-OrderSummary-price--price').text(price);
@@ -328,6 +341,10 @@ define(function(require) {
         product_id: shop.data.product._id,
         quantity: this._getQuantity()
       };
+
+      if (config.features.variants) {
+        // TODO: update line item based on selected item
+      }
 
       order.line_items.push(lineItem);
 

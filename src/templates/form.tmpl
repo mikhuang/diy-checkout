@@ -1,6 +1,26 @@
 <form class="Celery-Form" novalidate>
   <div class="Celery-Form-body">
 
+    {{#features.variants}}
+      <div class="Celery-FormSection Celery-FormSection--inline">
+        <div class="Celery-FormSection-header">
+          <h2 class="Celery-FormSection-heading">
+            Variants
+          </h2>
+        </div>
+
+        <div class="Celery-FormSection-body">
+          <div class="Celery-Form-group Celery-Form-group--variant">
+            <div class="Celery-Select">
+              <select class="Celery-Select-select" name="variant">
+                <option value="">Loading</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    {{/features.variants}}
+
     <div class="Celery-FormSection Celery-FormSection--inline">
       <div class="Celery-FormSection-header">
         <h2 class="Celery-FormSection-heading">
